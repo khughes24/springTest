@@ -1,0 +1,32 @@
+plugins {
+	id 'java'
+	id 'war'
+	id 'org.springframework.boot' version '3.2.3'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation group:'org.xerial', name:'sqlite-jdbc', version:'3.8.11.2'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.session:spring-session-core'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'net.minidev', name: 'json-smart', version: '1.1.1'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
